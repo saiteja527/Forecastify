@@ -12,7 +12,7 @@ function result() {
     fetch(currentWeatherUrl)
         .then(response => response.json())
         .then(data => {
-            displayWeather(data);
+                displayWeather(data);
         })
         .catch(error => {
             console.error('Error fetching current weather data:', error);
@@ -69,12 +69,12 @@ function displayWeather(data) {
 function displayHourlyForecast(hourlyData) {
     const hourlyForecastDiv = document.getElementById('moreinfo');
 
-    const next24Hours = hourlyData.slice(0, 8); 
+    const next24Hours = hourlyData.slice(0, 8);
 
     next24Hours.forEach(item => {
-        const dateTime = new Date(item.dt * 1000); 
+        const dateTime = new Date(item.dt * 1000);
         const hour = dateTime.getHours();
-        const temperature = Math.round(item.main.temp - 273.15); 
+        const temperature = Math.round(item.main.temp - 273.15);
         const iconCode = item.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
@@ -92,5 +92,5 @@ function displayHourlyForecast(hourlyData) {
 
 function showImage() {
     const weatherIcon = document.getElementById('image');
-    weatherIcon.style.display = 'block'; 
+    weatherIcon.style.display = 'block';
 }
